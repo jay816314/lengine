@@ -1,0 +1,15 @@
+.qrcode-shadow{position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:401;}
+.qrcode-shadow .qrcode-wrapper{position:relative;background:#fff;color:#444;width: 200px;padding: 0 25px 100px;border-radius:4px;left:50%;top:50%;}
+.qrcode-shadow .qrcode-wrapper div{padding:5px 0 0;}
+.qrcode-shadow .close-wrapper{text-align: right;margin-right:-15px;}
+.qrcode-shadow .close-wrapper button{padding:6px 10px;background:rgba(0,0,0,0.2);border:0;border-radius:50%;}
+.qrcode-shadow .qrcode-holder{position: relative;width:200px;height:200px;/*background-image:url(http://cdn.jisuapp.cn/zhichi_frontend/static/version2/common/images/qrcode_focus2.png);background-repeat: no-repeat;background-position: 0 145px;background-size:160px;*/}
+.qrcode-shadow .text-tip{margin:0 auto;text-align: center;}
+.qrcode-shadow img{width:100%;height:100%;margin:0 auto;}
+.qrcode-shadow img.zhiwen {
+  position: absolute;
+  height: 87%;
+  width: 100%;
+  left: 0;
+  top: 40px;
+}

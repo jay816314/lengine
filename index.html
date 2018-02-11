@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		
+        <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="keywords" content="" />
+		<div style ='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+			<img src='/image/data/pic300.jpg'/>
+		</div>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script type="text/javascript">
+			//分享链接的缩略图
+			var imgUrl = 'http://198.181.42.224/legine/image/data/pic300.jpg';
+			//分享链接的链接地址
+			var lineLink = 'http://198.181.42.224/legine';
+			//分享链接的描述信息
+			var descContent = "砺剑集团祝您新春快乐万事如意！";
+			//分享链接的标题
+			var shareTitle = "砺剑集团祝您新春快乐";
+			//一般为空 就好
+			var appid = '';
+			 
+			//分享给好友
+			function shareFriend() {
+				WeixinJSBridge.invoke('sendAppMessage', {
+						"appid": appid,
+						"img_url": imgUrl,
+						"img_width": "640",
+						"img_height": "640",
+						"link": lineLink,
+						"desc": descContent,
+						"title": shareTitle
+					}, function(res) {
+						_report('send_msg', res.err_msg);
+					})
+				}
+				 
+				//分享到朋友圈
+				function shareTimeline() {
+					WeixinJSBridge.invoke('shareTimeline', {
+						"img_url": imgUrl,
+						"img_width": "640",
+						"img_height": "640",
+						"link": lineLink,
+						"desc": descContent,
+						"title": shareTitle
+					}, function(res) {
+						_report('timeline', res.err_msg);
+					});
+				}
+				 
+				//分享到腾讯微博
+				function shareWeibo() {
+					WeixinJSBridge.invoke('shareWeibo', {
+						"content": descContent,
+						"url": lineLink,
+					}, function(res) {
+						_report('weibo', res.err_msg);
+					});
+				}
+				 
+				// 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+				document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+					// 发送给好友
+					WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+						shareFriend();
+					});
+					// 分享到朋友圈
+					WeixinJSBridge.on('menu:share:timeline', function(argv) {
+						shareTimeline();
+					});
+					// 分享到微博
+					WeixinJSBridge.on('menu:share:weibo', function(argv) {
+						shareWeibo();
+					});
+				}, false);
+		</script>
+
+        <title id="head-title" isvote="0" islike="0">砺剑集团祝您新春快乐</title>
+        <link rel="stylesheet" href="./new_invitation.css" />
+        <link rel="stylesheet" href="./iconfont(1).css" />
+        <style>
+            /* loading */
+            .spinner {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 0;
+              top: 0;
+              text-align: center;
+              z-index: 9999999;
+              background-color: #fff;
+            }
+            .svg-container {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              width: 71px;
+              margin-left: -35.4px;
+              margin-top: -80px;
+            }
+            .svg-st1 {
+              stroke-dasharray: 390;
+              stroke-dashoffset: 390;
+               -webkit-animation: dash 3s ease infinite;
+              animation: dash 3s ease infinite;
+            }
+            @-webkit-keyframes dash {
+              to {
+                stroke-dashoffset: 0;
+              }
+            }
+            @keyframes dash {
+              to {
+                stroke-dashoffset: 0;
+              }
+            }
+            .loading-logo{
+                width: 120px;
+                height: 120px;
+                position: absolute;
+                left: 50%;
+                top: 30%;
+                margin-left: -60px;
+            }
+            .loading-progress{
+              width: 120px;
+              height: 120px;
+              background: #3b99d7;
+              border-radius: 50%;
+              position: relative;
+            }
+            .loading-inner {
+              width: 100px;
+              height: 100px;
+              background: #fff;
+              border-radius: 50%;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              margin-left: -50px;
+              margin-top: -50px;
+            }
+            .loading-left, .loading-right {
+              width: 70px;
+              height: 130px;
+              position: absolute;
+              overflow: hidden;
+            }
+            .loading-left {
+              top: -5px;
+              left: -10px;
+              border-top-left-radius: 100% 50%;
+              border-bottom-left-radius: 100% 50%;
+              transform-origin: 100% 50%;
+            }
+            .loading-right {
+              top: -5px;
+              left: 50%;
+              border-top-right-radius: 100% 50%;
+              border-bottom-right-radius: 100% 50%;
+              transform-origin: 0 50%;  
+            }
+            .loading-left span, .loading-right span {
+              display: inline-block;
+              width: 100%;
+              height: 100%;
+              background: #fff;
+            }
+            .loading-left span {
+              border-top-left-radius: 100% 50%;
+              border-bottom-left-radius: 100% 50%;
+              transform-origin: 100% 50%;
+            }
+            .loading-right span {
+              top: 0;
+              right: 0;
+              border-top-right-radius: 100% 50%;
+              border-bottom-right-radius: 100% 50%;
+              transform-origin: 0 50%;
+            }
+            .loading-logo-wrap{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                overflow: hidden;
+                position: absolute;
+                left: 20px;
+                top: 20px;
+            }
+            .loading-logo-wrap &gt; img{
+                width: 100%;
+                height: 100%;
+            }
+            /* loading */
+            @keyframes logoMenu{
+                0% {
+                    background-image: url(http://cdn.jisuapp.cn/zhichi_frontend/static/invitation/images/logo.png);
+                    background-size: 30px;
+                }
+                50% {
+                    background-image: url(http://cdn.jisuapp.cn/zhichi_frontend/static/invitation/images/logo.png);
+                    background-size: 30px;
+                }
+            }
+            @-webkit-keyframes logoMenu{
+                0% {
+                    background-image: url(http://cdn.jisuapp.cn/zhichi_frontend/static/invitation/images/logo.png);
+                    -webkit-background-size: 30px;
+                }
+                50% {
+                    background-image: url(http://cdn.jisuapp.cn/zhichi_frontend/static/invitation/images/logo.png);
+                    -webkit-background-size: 30px;
+                }
+      }
+    
+</style>
+        <script charset="utf-8" src="./v.js"></script>
+        <script src="./hm.js"></script>
+        <script type="text/javascript">
+		  var agent = navigator.userAgent.toLowerCase();
+
+		  if (agent.indexOf('iphone') != -1 || agent.indexOf('ipad') != -1 ) {
+			  var head = document.getElementsByTagName('head').item(0);
+
+			  var style = document.createElement('style');
+			  style.type = 'text/css';
+			  style.innerHTML = '.self-iframe .home-wrap, #iframe, #iframe &gt; .iframe-container, #int-page .int-page-container {-webkit-overflow-scrolling: touch;}';
+
+			  head.appendChild(style);
+		  }
+		  var startTime = (new Date()).getTime(); 
+		
+		</script>
+		
+		<script>
+	    var descContent = "砺剑集团祝您新春快乐万事如意！";  // 分享后的描述信息
+	    var shareTitle = '砺剑集团祝您春节快乐';  // 分享后的标题
+
+		var appid = '';  // 应用id,如果有可以填，没有就留空
+        function shareFriend() {
+            WeixinJSBridge.invoke('sendAppMessage',{
+                "appid": appid,
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": descContent,
+                "title": shareTitle
+            }, function(res) {
+          //_report('send_msg', res.err_msg);  // 这是回调函数，必须注释掉
+            })
+        }
+        function shareTimeline() {
+            WeixinJSBridge.invoke('shareTimeline',{
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": descContent,
+                "title": shareTitle
+            }, function(res) {
+         //_report('timeline', res.err_msg); // 这是回调函数，必须注释掉
+            });
+        }
+        function shareWeibo() {
+            WeixinJSBridge.invoke('shareWeibo',{
+                "content": descContent,
+                "url": lineLink,
+            }, function(res) {
+                //_report('weibo', res.err_msg);
+            });
+        }
+   // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            // 发送给好友
+            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                shareFriend();
+            });
+            // 分享到朋友圈
+            WeixinJSBridge.on('menu:share:timeline', function(argv){
+                shareTimeline();
+            });
+            // 分享到微博
+            WeixinJSBridge.on('menu:share:weibo', function(argv){
+                shareWeibo();
+            });
+        }, false);
+		</script>
+    </head>
+    <!-- 
+    **clean-link 为1 是vip或有套餐，可用联合底标等
+    -->
+    <body ismem=""
+    data="{&quot;share-desc&quot;:&quot;&quot;,&quot;share-img&quot;:&quot;http:////img.weiye.me//zcimgdir//album//file_5a5498d588310.jpg&quot;,&quot;activity&quot;:{&quot;id&quot;:&quot;&quot;,&quot;isRequestAct&quot;:&quot;0&quot;},&quot;asidelogo&quot;:&quot;&quot;,&quot;asidelogourl&quot;:&quot;&quot;,&quot;flip-direction&quot;:&quot;true&quot;,&quot;flip-type&quot;:&quot;cover&quot;,&quot;auto-turn-page&quot;:{&quot;is_on&quot;:&quot;0&quot;,&quot;time&quot;:&quot;&quot;},&quot;tab_value&quot;:&quot;&quot;,&quot;cre_user_token&quot;:&quot;eafc1cfe9dc0272bd12241ddb2abf935&quot;,&quot;danmu_data&quot;:[&quot;1519773980&quot;],&quot;form_id_arr&quot;:&quot;&quot;,&quot;form_ele_id_arr&quot;:&quot;&quot;,&quot;high_share_front&quot;:&quot;&quot;,&quot;high_share_type&quot;:&quot;like&quot;,&quot;high_share_behind&quot;:&quot;&quot;,&quot;nav_fix_value&quot;:&quot;&quot;,&quot;arrow_img&quot;:&quot;http:////cdn.jisuapp.cn//zhichi_frontend//static//invitation//images//next.png&quot;,&quot;arrow_hide&quot;:&quot;false&quot;,&quot;loading_logo&quot;:&quot;&quot;,&quot;vote_activity_settings&quot;:&quot;&quot;,&quot;advertData&quot;:{&quot;num&quot;:&quot;0&quot;,&quot;mark_id&quot;:&quot;0&quot;,&quot;common&quot;:{&quot;industry&quot;:&quot;&quot;,&quot;area&quot;:&quot;&quot;}},&quot;share-music&quot;:&quot;&quot;,&quot;vote&quot;:{&quot;questionId&quot;:&quot;1&quot;},&quot;castDanmuData&quot;:{&quot;1519773980&quot;:{&quot;name&quot;:&quot;%u5F39%u5E551519773980&quot;}}}"
+    music-url="" aside_show="0" share_count="" clean-link="0" combine-logo="" admin="0" iscollect="0" need-login="2" category_id="0" advertconfig="" data-ads="" loading_logo="" black_domain="0" is_custom_domain="0" cre_ut="eafc1cfe9dc0272bd12241ddb2abf935">
+        <img style="position:absolute;left:-9999999px;" src="./file_5a5498d588310.jpg" width="0" height="0" />
+        <div id="invitation-container" style="height: 588px;">
+        <div class="phone-music" id="music">
+            <div class="bg-back">返回</div>
+            <div class="bg-baidu">
+                <a id="baidu-a" href="http://www.weiye.me/s?nodirect=1&amp;id=3703768#">
+                    <img src="./baidu-icon.png" alt="" />
+                </a>
+            </div>
+            <div class="bg-icon more_rotate_run"></div>
+            <!-- <audio id="bg_music" autoplay loop="loop" preload ></audio> -->
+        </div>
+        <!-- 滑动组件 -->
+        <div class="flip" id="flip" act_id="0" url="https://u2415511.jisuwebapp.com/s?id=3703768&amp;to_id=eafc1cfe9dc0272bd12241ddb2abf935" nickname="15625043049" wx_nickname="" wx_headimgurl="" style="overflow: hidden; position: absolute; left: 0%; top: 0%;">
+            <section class="page background-scale current-page" style="background: none; transition: transform 600ms linear; transform: translateY(0px); z-index: 11;" animatename="scaleInCenterSlow" loaddanmu="1">
+                <div class="pageshow" style="width: 330px; height: 520px; margin-top: 34px; margin-left: 514px; transform: scale(1.13077); display: block;">
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片24" style="position: absolute; left: -3.5px; top: -1px; width: 335.801px; height: 521px; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a5317a8b2364.gif" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 368.672px; width: 34.5469px; height: 76.3125px; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978265a5322c2ad9eb.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 234.609px; top: 226.359px; width: 71.1563px; height: 91.7813px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978265a5322c252760.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleY" isproportion="false" animatename="scaleY" el_name="图片18" style="position: absolute; left: 35px; top: 89px; width: 254px; height: 382px; animation-duration: 1s; animation-delay: 1.3s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.3s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a54aba9aaef6.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 94.375px; top: 148.563px; width: 141px; height: 139px; animation-duration: 1s; animation-delay: 2.9s; animation-iteration-count: 1; right: auto; bottom: auto;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978245a5322c043497.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate more_rollInRight" isproportion="false" animatename="more_rollInRight" style="position: absolute; left: -33.5156px; top: 51.0469px; width: 112.922px; height: 131.484px; animation-duration: 1s; animation-delay: 1s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978205a5322bc64a96.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate more_rollInLeft" isproportion="false" animatename="more_rollInLeft" style="position: absolute; left: 251.625px; top: 52.5938px; width: 112.922px; height: 131.484px; animation-duration: 1s; animation-delay: 1s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978195a5322bbf00f2.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 21.1406px; top: 153.141px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978235a5322bf44baf.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp hide" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 14.9531px; top: 95.9063px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978225a5322becf153.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 29.3906px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978225a5322be6df53.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 271.734px; top: 152.625px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978225a5322be16d1d.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp hide" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 225.328px; top: 94.3594px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978215a5322bd9b6c1.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片18" style="position: absolute; left: 105px; top: 384px; width: 120px; height: 60px; animation-duration: 1s; animation-delay: 1.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a72808f37d23.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 251.625px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978215a5322bd462cf.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterOut" isproportion="false" animatename="scaleCenterOut" style="position: absolute; left: 100.031px; top: 133.031px; width: 63.9375px; height: 69.6094px; animation-duration: 1s; animation-delay: 3.4s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;3.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978195a5322bb7fef6.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterOut" isproportion="false" animatename="scaleCenterOut" style="position: absolute; left: 169.125px; top: 162.938px; width: 62.3906px; height: 72.1875px; animation-duration: 1s; animation-delay: 3.7s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;3.7s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978195a5322bb1f031.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterOut" isproportion="false" animatename="scaleCenterOut" style="position: absolute; left: 97.9688px; top: 208.828px; width: 64.4531px; height: 65.4844px; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978185a5322ba95309.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterOut" isproportion="false" animatename="scaleCenterOut" style="position: absolute; left: 161.391px; top: 240.281px; width: 64.9688px; height: 66.5156px; animation-duration: 1s; animation-delay: 4.3s; animation-iteration-count: 1;" el_name="图片24" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.3s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15153978185a5322ba26bd9.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字1" style="position: absolute; left: 82px; top: 35px; width: 83px; height: 21px; right: auto; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="font-size: 12px; color: rgb(255, 229, 153);">狗 /&nbsp;年 /&nbsp;大 /&nbsp;吉</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight js-max-zIndex" animatename="translateRight" el_name="文字2" style="position: absolute; left: 172px; top: 35px; width: 82px; height: 21px; right: auto; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153); font-size: 12px;">万 /&nbsp;事 /&nbsp;如 /&nbsp;意</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="background-animate scaleInCenterSlow" animatename="scaleInCenterSlow" style="position: absolute; left: 0%; top: 0%; width: 101%; display: block; opacity: 1; height: 100%; z-index: -1; animation-duration: 2s; animation-delay: 0.2s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;2s&quot;,&quot;delay&quot;:&quot;0.2s&quot;,&quot;iteration&quot;:&quot;1&quot;}">
+                    <div class="animate-contain">
+                        <img src="./file_5a548217392d2.jpg" alt="" style="width: 100%; height: 100%;" />
+                    </div>
+                </div>
+            </section>
+            <section class="page background-scale" style="background: none; transition: transform 600ms linear; opacity: 0; transform: translateY(100%); z-index: 10;" animatename="scaleInCenterSlow">
+                <div class="pageshow" style="width: 330px; height: 520px; margin-top: 34px; margin-left: 514px; transform: scale(1.13077);">
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片24" style="position: absolute; left: -2px; top: -4px; width: 336px; height: 521px; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a5317a8b2364.gif" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 368.672px; width: 34.5469px; height: 76.3125px; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854405a547900479a9.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 234.609px; top: 226.359px; width: 71.1563px; height: 91.7813px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854395a5478ffef49e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleY" isproportion="false" animatename="scaleY" el_name="图片18" style="position: absolute; left: 35.5px; top: 86px; width: 254.332px; height: 382px; right: auto; animation-duration: 1s; animation-delay: 0.9s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a54aba9aaef6.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 92.9688px; top: 139.219px; width: 140.766px; height: 139.734px; animation-duration: 1s; animation-delay: 2.9s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854385a5478fe10def.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateUp" isproportion="false" animatename="translateUp" style="position: absolute; left: 0px; top: 426.938px; width: 330px; height: 92.8125px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854365a5478fce377a.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateDown" isproportion="false" animatename="translateDown" style="position: absolute; left: 0px; top: 0px; width: 330px; height: 91.7813px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854365a5478fc2203c.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 21.1406px; top: 153.141px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854355a5478fbab56e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 14.9531px; top: 95.9063px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854355a5478fb3a04b.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 29.3906px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854345a5478fab7605.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 271.734px; top: 152.625px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854345a5478fa605bb.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 225.328px; top: 94.3594px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854345a5478fa02f52.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 251.625px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854335a5478f9a360c.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterOut" isproportion="false" animatename="scaleCenterOut" style="position: absolute; left: 97.0938px; top: 149.531px; width: 128.906px; height: 72.1875px; animation-duration: 1s; animation-delay: 3.4s; animation-iteration-count: 1;" el_name="图片22" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;3.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154854325a5478f8d0111.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit fadeInRight" animatename="fadeInRight" el_name="文字1" style="position: absolute; left: 74px; top: 307px; width: 182px; height: 24px; animation-duration: 1s; animation-delay: 4.3s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.3s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="font-size: 16px;line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153);">新的一年，我们心怀感恩</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit fadeInLeft" animatename="fadeInLeft" el_name="文字2" style="position: absolute; left: 88px; top: 334px; width: 150px; height: 24px; animation-duration: 1s; animation-delay: 4.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="font-size: 16px;line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153);">向您致以亲切的问候</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit fadeInRight" animatename="fadeInRight" el_name="文字3" style="position: absolute; left: 110px; top: 359px; width: 103px; height: 24px; animation-duration: 1s; animation-delay: 4.9s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="font-size: 16px;line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153);">和真挚的感谢</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字1" style="position: absolute; left: 84px; top: 39px; width: 83px; height: 21px; animation-duration: 1s; animation-delay: 0.7s; animation-iteration-count: 1; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.7s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="font-size: 12px; color: rgb(255, 229, 153);">狗 /&nbsp;年 /&nbsp;大 /&nbsp;吉</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight" animatename="translateRight" el_name="文字2" style="position: absolute; left: 176px; top: 39px; width: 82px; height: 21px; animation-duration: 1s; animation-delay: 0.7s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.7s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153); font-size: 12px;">万 /&nbsp;事 /&nbsp;如 /&nbsp;意</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp js-max-zIndex" isproportion="false" animatename="fadeInUp" el_name="图片18" style="position: absolute; left: 105px; top: 384px; width: 120px; height: 60px; animation-duration: 1s; animation-delay: 1.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a72808f37d23.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="background-animate scaleInCenterSlow" animatename="scaleInCenterSlow" style="position: absolute; left: 0%; top: 0%; width: 101%; display: none; opacity: 1; height: 100%; z-index: -1; animation-duration: 2s; animation-delay: 0.2s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;2s&quot;,&quot;delay&quot;:&quot;0.2s&quot;,&quot;iteration&quot;:&quot;1&quot;}">
+                    <div class="animate-contain">
+                        <img src="./file_5a5477d1cde24.jpg" alt="" style="width: 100%; height: 100%;" />
+                    </div>
+                </div>
+            </section>
+            <section class="page background-scale" style="background: none; transition: transform 600ms linear; opacity: 0; transform: translateY(100%);" animatename="scaleInCenterSlow">
+                <div class="pageshow" style="width: 330px; height: 520px; margin-top: 34px; margin-left: 514px; transform: scale(1.13077);">
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片24" style="position: absolute; left: -5px; top: 0px; width: 336px; height: 521px; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a5317a8b2364.gif" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 368.672px; width: 34.5469px; height: 76.3125px;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850225a54775eb20d9.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 234.609px; top: 226.359px; width: 71.1563px; height: 91.7813px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850215a54775debffd.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleY" isproportion="false" animatename="scaleY" el_name="图片18" style="position: absolute; left: 35px; top: 88px; width: 254px; height: 382px; animation-duration: 1s; animation-delay: 0.9s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a54aba9aaef6.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 97.9688px; top: 139.219px; width: 140.766px; height: 139.734px; animation-duration: 1s; animation-delay: 2.9s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850195a54775b3d2ef.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateUp" isproportion="false" animatename="translateUp" style="position: absolute; left: 0px; top: 426.938px; width: 330px; height: 92.8125px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850175a5477591553c.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateDown" isproportion="false" animatename="translateDown" style="position: absolute; left: 0px; top: 0px; width: 330px; height: 91.7813px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850155a547757162af.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 21.1406px; top: 153.141px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850145a547756085ed.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 14.9531px; top: 95.9063px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850135a547755215c7.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 29.3906px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850125a5477545b20e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 271.734px; top: 152.625px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850115a547753a32cc.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 225.328px; top: 94.3594px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850105a547752d32ca.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 251.625px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850105a54775214246.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 152.438px; top: 281.516px; width: 66px; height: 24px; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1; bottom: auto;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850085a5477507de46.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterOut" isproportion="false" animatename="scaleCenterOut" style="position: absolute; left: 90.75px; top: 169.641px; width: 160.875px; height: 39.1875px; animation-duration: 1s; animation-delay: 3.4s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;3.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850075a54774fad5ba.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 310.406px; width: 330px; height: 107.766px; animation-duration: 1s; animation-delay: 1.4s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850065a54774e0c0f6.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 351.656px; width: 330px; height: 130.453px; animation-duration: 1s; animation-delay: 1.6s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850045a54774c818b1.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 386.719px; width: 330px; height: 133.031px; animation-duration: 1s; animation-delay: 1.2s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.2s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850025a54774ae59a5.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 0px; top: 431.547px; width: 330px; height: 89px; animation-duration: 1s; animation-delay: 1.3s; animation-iteration-count: 1; right: auto; bottom: auto;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.3s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850015a547749d0bb1.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 108.797px; top: 451.688px; width: 114.469px; height: 67.5469px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850005a547748e1c93.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 229.453px; top: 480.047px; width: 57.2344px; height: 35.5781px;" el_name="图片28" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154850005a54774807435.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight" animatename="translateRight" el_name="文字1" style="position: absolute; left: 96px; top: 319px; width: 114px; height: 24px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 4.3s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.3s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="font-size: 16px;line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153);">健康平安在身边</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字2" style="position: absolute; left: 130px; top: 344px; width: 116px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 4.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="font-size: 16px;line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153);">合家团圆幸福来</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight" animatename="translateRight" el_name="文字2" style="position: absolute; left: 171px; top: 49px; width: 82px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153); font-size: 12px;">万 /&nbsp;事 /&nbsp;如 /&nbsp;意</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字1" style="position: absolute; left: 74px; top: 49px; width: 83px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="font-size: 12px; color: rgb(255, 229, 153);">狗 /&nbsp;年 /&nbsp;大 /&nbsp;吉</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit artfont js-max-zIndex fadeInLeft" animatename="fadeInLeft" el_name="文字5" style="position: absolute; left: 55px; top: 276px; width: 104px; height: 72px; bottom: auto; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0); padding: 0px; min-height: 20px; font-family: lixukemaobixs;" artfonttext="weiye-lixukemaobixs" artfont="&lt;p style=&#39;line-height: 1.5em;&#39;&gt;&lt;span style=&#39;color: rgb(255, 229, 153); font-size: 24px;&#39;&gt;砺剑集团&lt;/span&gt;&lt;/p&gt;">
+                            <img src="./o_15174563165a728bbc0ab37.png" alt="" style="width: 100%;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="background-animate scaleInCenterSlow" animatename="scaleInCenterSlow" style="position: absolute; left: 0%; top: 0%; width: 101%; display: none; opacity: 1; height: 100%; z-index: -1; animation-duration: 2s; animation-delay: 0.2s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;2s&quot;,&quot;delay&quot;:&quot;0.2s&quot;,&quot;iteration&quot;:&quot;1&quot;}">
+                    <div class="animate-contain">
+                        <img src="./file_5a5477d1cde24.jpg" alt="" style="width: 100%; height: 100%;" />
+                    </div>
+                </div>
+            </section>
+            <section class="page background-scale" style="background: none; transition: transform 600ms linear; opacity: 0; transform: translateY(100%);" animatename="scaleInCenterSlow">
+                <div class="pageshow" style="width: 330px; height: 520px; margin-top: 34px; margin-left: 514px; transform: scale(1.13077);">
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片24" style="position: absolute; left: -3px; top: -2px; width: 336px; height: 521px; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a5317a8b2364.gif" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 368.672px; width: 34.5469px; height: 76.3125px; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074345a53484a38018.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 234.609px; top: 226.359px; width: 71.1563px; height: 91.7813px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074335a5348497907a.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleY" isproportion="false" animatename="scaleY" el_name="图片18" style="position: absolute; left: 36px; top: 87px; width: 254px; height: 382px; animation-duration: 1s; animation-delay: 0.9s; animation-iteration-count: 1; right: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a54aba9aaef6.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 92.9688px; top: 139.219px; width: 140.766px; height: 139.734px; animation-duration: 1s; animation-delay: 2.9s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074305a534846da26c.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateUp" isproportion="false" animatename="translateUp" style="position: absolute; left: 0px; top: 426.938px; width: 330px; height: 92.8125px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074285a534844df9ed.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateDown" isproportion="false" animatename="translateDown" style="position: absolute; left: 0px; top: 0px; width: 330px; height: 91.7813px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074275a5348438c42b.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter ui-draggable-dragging" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 18px; top: 152px; width: 31px; height: 46px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1; right: auto;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074245a534840ed6d9.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 14.9531px; top: 95.9063px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074265a5348428a6a1.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 29.3906px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074255a534841aa9cb.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 271.734px; top: 152.625px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074245a534840ed6d9.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 225.328px; top: 94.3594px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074245a53484026d38.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 251.625px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074235a53483f605ec.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate ui-draggable-dragging more_pullInUp" isproportion="false" animatename="more_pullInUp" style="position: absolute; left: 35.9219px; top: 382.25px; width: 114px; height: 78px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 0.5s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074225a53483e9c150.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 164.438px; top: 285.141px; width: 65.4844px; height: 24.75px; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074215a53483ddb953.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterOut" isproportion="false" animatename="scaleCenterOut" style="position: absolute; left: 87.2969px; top: 170.672px; width: 159.844px; height: 37.125px; animation-duration: 1s; animation-delay: 3.4s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;3.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074215a53483d213fb.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 88.1719px; top: 472.313px; width: 241.828px; height: 47.4375px; animation-duration: 1s; animation-delay: 1.3s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.3s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074205a53483c3a381.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 285.656px; top: 479.531px; width: 43.3125px; height: 25.2656px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074195a53483b6fba2.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 264.516px; top: 491.906px; width: 43.3125px; height: 24.75px; animation-duration: 1s; animation-delay: 2.7s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.7s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074185a53483ab83ac.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 263.484px; top: 490.875px; width: 37.125px; height: 22.6875px;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074185a53483a01121.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 274.828px; top: 476.438px; width: 36.0938px; height: 22.1719px;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074175a534839279e0.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 265.547px; top: 471.281px; width: 40.7344px; height: 23.2031px; animation-duration: 1s; animation-delay: 2.9s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074165a5348386dcd2.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 258.844px; top: 485.719px; width: 37.125px; height: 21.1406px;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074155a53483792fc0.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 122.203px; top: 418.172px; width: 144.375px; height: 101.578px; animation-duration: 1s; animation-delay: 2.4s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074145a534836aa35b.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 176.344px; top: 411.984px; width: 61.875px; height: 42.7969px; animation-duration: 1s; animation-delay: 2.2s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.2s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074135a534835e1527.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 133.547px; top: 429px; width: 70.125px; height: 38.1563px; animation-duration: 1s; animation-delay: 2s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074135a53483525785.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 177.891px; top: 441.891px; width: 72.7031px; height: 39.1875px; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074125a53483454e06.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 216.047px; top: 454.266px; width: 66px; height: 35.5781px; animation-duration: 1s; animation-delay: 1.6s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074115a5348338cf9a.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 136.125px; top: 461.484px; width: 85.0781px; height: 45.8906px; animation-duration: 1s; animation-delay: 1.4s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074105a534832b69c8.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 207.281px; top: 477.469px; width: 76.8281px; height: 41.25px; animation-duration: 1s; animation-delay: 1.2s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.2s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074095a534831dd0f7.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 83.5313px; top: 482.109px; width: 40.2188px; height: 21.6563px; animation-duration: 1s; animation-delay: 0.7s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.7s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074095a534831208e4.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 287.719px; top: 433.125px; width: 41.25px; height: 23.2031px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074085a5348304c552.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 65.4844px; top: 494.484px; width: 36.6094px; height: 20.1094px; animation-duration: 1s; animation-delay: 1.1s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074065a53482eb3ba5.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInLeft" isproportion="false" animatename="fadeInLeft" style="position: absolute; left: 243.375px; top: 221.203px; width: 40.2188px; height: 49.5px; animation-duration: 1s; animation-delay: 1.2s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.2s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074055a53482dccd95.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInLeft" isproportion="false" animatename="fadeInLeft" style="position: absolute; left: 297px; top: 275.859px; width: 33px; height: 62.3906px; animation-duration: 1s; animation-delay: 0.8s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:0.5490196078431373;">
+                            <img src="./t_15154074045a53482cd9bd8.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 262.453px; top: 364.547px; width: 29.3906px; height: 27.3281px; animation-duration: 1s; animation-delay: 1.6s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074045a53482c284e1.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInRight" isproportion="false" animatename="fadeInRight" style="position: absolute; left: 37.6406px; top: 292.359px; width: 32.4844px; height: 40.7344px; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074035a53482b6da9b.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 11.8594px; top: 434.156px; width: 38.1563px; height: 20.625px; animation-duration: 1s; animation-delay: 1s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074025a53482a8ff52.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInRight" isproportion="false" animatename="fadeInRight" style="position: absolute; left: 0px; top: 196.453px; width: 20.1094px; height: 44.3438px; animation-duration: 1s; animation-delay: 0.8s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074015a534829d87d6.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight" animatename="translateRight" el_name="文字1" style="position: absolute; left: 92px; top: 325px; width: 117px; height: 20px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 4.3s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.3s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p>
+                                <span style="color: rgb(255, 229, 153); font-size: 16px;">万事顺利笑开怀</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字2" style="position: absolute; left: 125px; top: 354px; width: 117px; height: 24px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 4.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="font-size: 16px;line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153);">财源广进吉星照</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight" animatename="translateRight" el_name="文字2" style="position: absolute; left: 168px; top: 48px; width: 82px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153); font-size: 12px;">万 /&nbsp;事 /&nbsp;如 /&nbsp;意</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字1" style="position: absolute; left: 71px; top: 47px; width: 83px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="font-size: 12px; color: rgb(255, 229, 153);">狗 /&nbsp;年 /&nbsp;大 /&nbsp;吉</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit artfont js-max-zIndex fadeInUp" animatename="fadeInUp" el_name="文字5" style="position: absolute; left: 66px; top: 280px; width: 104px; height: 72px; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0); padding: 0px; min-height: 20px; font-family: lixukemaobixs;" artfonttext="weiye-lixukemaobixs" artfont="&lt;p style=&#39;line-height: 1.5em;&#39;&gt;&lt;span style=&#39;color: rgb(255, 229, 153); font-size: 24px;&#39;&gt;砺剑集团&lt;/span&gt;&lt;/p&gt;">
+                            <img src="./o_15174555355a7288afa806a.png" alt="" style="width: 100%;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="background-animate scaleInCenterSlow" animatename="scaleInCenterSlow" style="position: absolute; left: 0%; top: 0%; width: 101%; display: none; opacity: 1; height: 100%; z-index: -1; animation-duration: 2s; animation-delay: 0.2s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;2s&quot;,&quot;delay&quot;:&quot;0.2s&quot;,&quot;iteration&quot;:&quot;1&quot;}">
+                    <div class="animate-contain">
+                        <img src="./file_5a5477d1cde24.jpg" alt="" style="width: 100%; height: 100%;" />
+                    </div>
+                </div>
+            </section>
+            <section class="page background-scale" style="background: none; transition: transform 600ms linear; opacity: 0; transform: translateY(100%);" animatename="scaleInCenterSlow">
+                <div class="pageshow" style="width: 330px; height: 520px; margin-top: 34px; margin-left: 514px; transform: scale(1.13077);">
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片24" style="position: absolute; left: -2px; top: 0px; width: 336px; height: 521px; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a5317a8b2364.gif" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 368.672px; width: 34.5469px; height: 76.3125px;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907705a548dd218225.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 234.609px; top: 226.359px; width: 71.1563px; height: 91.7813px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907695a548dd1b0792.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleY" isproportion="false" animatename="scaleY" el_name="图片18" style="position: absolute; left: 38px; top: 87px; width: 254px; height: 382px; animation-duration: 1s; animation-delay: 0.9s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a54aba9aaef6.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 94.9688px; top: 139.219px; width: 140.766px; height: 139.734px; animation-duration: 1s; animation-delay: 2.9s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907675a548dcfc3243.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateUp" isproportion="false" animatename="translateUp" style="position: absolute; left: 0px; top: 440.859px; width: 330px; height: 78.8906px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907665a548dcea42b6.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateDown" isproportion="false" animatename="translateDown" style="position: absolute; left: 0px; top: 0px; width: 330px; height: 91.7813px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907655a548dcd4f75c.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 21.1406px; top: 153.141px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907645a548dcccba61.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 14.9531px; top: 95.9063px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907645a548dcc6be65.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 29.3906px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907645a548dcc115b5.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 271.734px; top: 152.625px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907635a548dcba678c.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 225.328px; top: 94.3594px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907635a548dcb4578e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 251.625px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907625a548dcadf554.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 159.438px; top: 285.141px; width: 65.4844px; height: 24.75px; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907625a548dca9330e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterOut" isproportion="false" animatename="scaleCenterOut" style="position: absolute; left: 87.75px; top: 170.156px; width: 161.906px; height: 38.6719px; animation-duration: 1s; animation-delay: 3.4s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;3.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907625a548dca2c352.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateLeft" isproportion="false" animatename="translateLeft" style="position: absolute; left: 256.688px; top: 396.094px; width: 56px; height: 94px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片27" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907605a548dc8212aa.png" alt="" style="width: 100%; height: 100%; margin-top: 0px; margin-left: 0px;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate int-animate more_swing_run" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 293.391px; top: 344.953px; width: 20.1094px; height: 20.1094px; display: block; animation-duration: 3.3s; animation-delay: 0.2s; animation-iteration-count: infinite;" el_name="图片27"
+                    animate-arr="{&quot;0&quot;:{&quot;animation-name&quot;:&quot;rotateInCenter&quot;,&quot;animation-duration&quot;:&quot;1&quot;,&quot;animation-delay&quot;:&quot;2&quot;,&quot;animation-iteration-count&quot;:&quot;1&quot;},&quot;1&quot;:{&quot;animation-name&quot;:&quot;more_swing_run&quot;,&quot;animation-duration&quot;:&quot;3.3&quot;,&quot;animation-delay&quot;:&quot;0.2&quot;,&quot;animation-iteration-count&quot;:&quot;infinite&quot;}}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907595a548dc7c22c8.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate int-animate more_rotate_runCW" isproportion="false" animatename="fadeInDown" style="position: absolute; left: 231px; top: 276.375px; width: 11.3438px; height: 11.3438px; animation-duration: 13s; animation-delay: 0.2s; animation-iteration-count: infinite; display: block;" el_name="图片27"
+                    animate-arr="{&quot;0&quot;:{&quot;animation-name&quot;:&quot;fadeInDown&quot;,&quot;animation-duration&quot;:&quot;1&quot;,&quot;animation-delay&quot;:&quot;1.2&quot;,&quot;animation-iteration-count&quot;:&quot;1&quot;},&quot;1&quot;:{&quot;animation-name&quot;:&quot;more_rotate_runCW&quot;,&quot;animation-duration&quot;:&quot;13&quot;,&quot;animation-delay&quot;:&quot;0.2&quot;,&quot;animation-iteration-count&quot;:&quot;infinite&quot;}}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907595a548dc76c2e2.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate int-animate more_rotate_runCW" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 22.4117px; top: 363.537px; width: 16px; height: 16px; display: block; animation-duration: 13.4s; animation-delay: 0.2s; animation-iteration-count: infinite; right: auto; bottom: auto;" el_name="图片27"
+                    animate-arr="{&quot;0&quot;:{&quot;animation-name&quot;:&quot;fadeInDown&quot;,&quot;animation-duration&quot;:&quot;1&quot;,&quot;animation-delay&quot;:&quot;1.4&quot;,&quot;animation-iteration-count&quot;:&quot;1&quot;},&quot;1&quot;:{&quot;animation-name&quot;:&quot;more_rotate_runCW&quot;,&quot;animation-duration&quot;:&quot;13.4&quot;,&quot;animation-delay&quot;:&quot;0.2&quot;,&quot;animation-iteration-count&quot;:&quot;infinite&quot;}}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907595a548dc720ec3.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate int-animate more_swing_run" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 13.9219px; top: 236.156px; width: 20.625px; height: 20.625px; animation-duration: 3.3s; animation-delay: 0.2s; animation-iteration-count: infinite; display: block;" el_name="图片27"
+                    animate-arr="{&quot;0&quot;:{&quot;animation-name&quot;:&quot;rotateInCenter&quot;,&quot;animation-duration&quot;:1,&quot;animation-delay&quot;:0.7,&quot;animation-iteration-count&quot;:&quot;1&quot;},&quot;1&quot;:{&quot;animation-name&quot;:&quot;more_swing_run&quot;,&quot;animation-duration&quot;:&quot;3.3&quot;,&quot;animation-delay&quot;:&quot;0.2&quot;,&quot;animation-iteration-count&quot;:&quot;infinite&quot;}}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154907585a548dc6c2488.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight" animatename="translateRight" el_name="文字1" style="position: absolute; left: 127px; top: 325px; width: 119px; height: 24px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 4.3s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.3s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="font-size: 16px;line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153);">狗年到来事事顺</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字2" style="position: absolute; left: 141px; top: 350px; width: 114px; height: 22px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 4.6s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p>
+                                <span style="color: rgb(255, 229, 153); font-size: 16px;">得意洋洋满面春</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight" animatename="translateRight" el_name="文字2" style="position: absolute; left: 172px; top: 47px; width: 82px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153); font-size: 12px;">万 /&nbsp;事 /&nbsp;如 /&nbsp;意</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字1" style="position: absolute; left: 75px; top: 46px; width: 83px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; right: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="font-size: 12px; color: rgb(255, 229, 153);">狗 /&nbsp;年 /&nbsp;大 /&nbsp;吉</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit artfont more_lightSpeedInRight" animatename="more_lightSpeedInRight" el_name="文字5" style="position: absolute; left: 61px; top: 280px; width: 104px; height: 72px; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0); padding: 0px; min-height: 20px; font-family: lixukemaobixs;" artfonttext="weiye-lixukemaobixs" artfont="&lt;p style=&#39;line-height: 1.5em;&#39;&gt;&lt;span style=&#39;color: rgb(255, 229, 153); font-size: 24px;&#39;&gt;砺剑集团&lt;/span&gt;&lt;/p&gt;">
+                            <img src="./o_15174555355a7288afa806a.png" alt="" style="width: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片22" style="position: absolute; left: -20.5px; top: 320px; width: 165px; height: 165px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_58a2af1f84780.png" alt="" style="width: 165px; height: 165px; margin-left: 0px; margin-top: 0px;" />
+                        </div>
+                    </div>
+                    <div class="img animate js-max-zIndex fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片24" style="position: absolute; left: 105px; top: 384px; width: 120px; height: 60px; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./t_15174682095a72ba31a146b.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="background-animate scaleInCenterSlow" animatename="scaleInCenterSlow" style="position: absolute; left: 0%; top: 0%; width: 101%; display: none; opacity: 1; height: 100%; z-index: -1; animation-duration: 2s; animation-delay: 0.2s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;2s&quot;,&quot;delay&quot;:&quot;0.2s&quot;,&quot;iteration&quot;:&quot;1&quot;}">
+                    <div class="animate-contain">
+                        <img src="./file_5a5477d1cde24.jpg" alt="" style="width: 100%; height: 100%;" />
+                    </div>
+                </div>
+            </section>
+            <section class="page background-scale" style="background: none; transition: transform 600ms linear; opacity: 0; transform: translateY(100%);" animatename="scaleInCenterSlow">
+                <div class="pageshow" style="width: 330px; height: 520px; margin-top: 34px; margin-left: 514px; transform: scale(1.13077);">
+                    <div class="img animate translateUp" isproportion="false" animatename="translateUp" style="position: absolute; left: 0px; top: 440.859px; width: 330px; height: 78.8906px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903655a548c3d50e01.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 208.828px; width: 26.2969px; height: 75.2813px; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903715a548c439b194.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 234.609px; top: 226.359px; width: 71.1563px; height: 91.7813px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903705a548c42ddc19.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleY" isproportion="false" animatename="scaleY" el_name="图片18" style="position: absolute; left: 34px; top: 87px; width: 254px; height: 382px; animation-duration: 1s; animation-delay: 0.9s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./file_5a54aba9aaef6.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 94.3594px; top: 203.156px; width: 140.766px; height: 139.734px; animation-duration: 1s; animation-delay: 2.9s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903685a548c4060bd3.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateDown" isproportion="false" animatename="translateDown" style="position: absolute; left: 0px; top: 0px; width: 330px; height: 91.7813px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903645a548c3c26609.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 21.1406px; top: 153.141px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903615a548c39e4f1d.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 14.9531px; top: 95.9063px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903615a548c3921a98.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 29.3906px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903605a548c3861603.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 271.734px; top: 152.625px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903595a548c37a0dbf.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 225.328px; top: 94.3594px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903585a548c36cd167.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 251.625px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903585a548c360f73e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterIn" isproportion="false" animatename="scaleCenterIn" style="position: absolute; left: 173.25px; top: 186.141px; width: 38.1563px; height: 188.719px; animation-duration: 1s; animation-delay: 2.9s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903575a548c352f30e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleCenterIn" isproportion="false" animatename="scaleCenterIn" style="position: absolute; left: 119.109px; top: 143.344px; width: 39.7031px; height: 191.813px; animation-duration: 1s; animation-delay: 3.4s; animation-iteration-count: 1;" el_name="图片21" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;3.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903565a548c345f7a4.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate int-animate more_rotate_runCW" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 186.656px; top: 417.141px; width: 15.9844px; height: 15.9844px; animation-duration: 11.9s; animation-delay: 0.2s; animation-iteration-count: infinite; display: block;" el_name="图片21"
+                    animate-arr="{&quot;0&quot;:{&quot;animation-name&quot;:&quot;rotateInCenter&quot;,&quot;animation-duration&quot;:&quot;1&quot;,&quot;animation-delay&quot;:&quot;2.1&quot;,&quot;animation-iteration-count&quot;:&quot;1&quot;},&quot;1&quot;:{&quot;animation-name&quot;:&quot;more_rotate_runCW&quot;,&quot;animation-duration&quot;:&quot;11.9&quot;,&quot;animation-delay&quot;:&quot;0.2&quot;,&quot;animation-iteration-count&quot;:&quot;infinite&quot;}}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154903535a548c31deeec.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight" animatename="translateRight" el_name="文字2" style="position: absolute; left: 168px; top: 47px; width: 82px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153); font-size: 12px;">万 /&nbsp;事 /&nbsp;如 /&nbsp;意</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字1" style="position: absolute; left: 75px; top: 46px; width: 83px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; right: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="font-size: 12px; color: rgb(255, 229, 153);">狗 /&nbsp;年 /&nbsp;大 /&nbsp;吉</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="img animate translateLeft" isproportion="false" animatename="translateLeft" style="position: absolute; left: 287px; top: 339px; width: 29px; height: 27px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074045a53482c284e1.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 259px; top: 431px; width: 34px; height: 19px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 1.4s; animation-iteration-count: 1;" el_name="图片44" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154074085a5348304c552.png" alt="" style="width: 100%; height: 100%; margin-top: 0px; margin-left: 0px;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate js-max-zIndex fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片24" style="position: absolute; left: 105px; top: 384px; width: 120px; height: 60px; bottom: auto; animation-duration: 1s; animation-delay: 4s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain">
+                            <img src="./t_15174682095a72ba31a146b.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="background-animate scaleInCenterSlow" animatename="scaleInCenterSlow" style="position: absolute; left: 0%; top: 0%; width: 101%; display: none; opacity: 1; height: 100%; z-index: -1; animation-duration: 2s; animation-delay: 0.2s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;2s&quot;,&quot;delay&quot;:&quot;0.2s&quot;,&quot;iteration&quot;:&quot;1&quot;}">
+                    <div class="animate-contain">
+                        <img src="./file_5a5477d1cde24.jpg" alt="" style="width: 100%; height: 100%;" />
+                    </div>
+                </div>
+            </section>
+            <section class="page background-scale" style="background: none; transition: transform 600ms linear; opacity: 0; transform: translateY(0px); z-index: 10;" animatename="scaleInCenterSlow">
+                <div class="pageshow" style="width: 330px; height: 520px; margin-top: 34px; margin-left: 514px; transform: scale(1.13077);">
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" el_name="图片24" style="position: absolute; left: -5px; top: -3px; width: 336px; height: 521px; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain">
+                            <!-- <img src="./file_5a5317a8b2364.gif" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" /> -->
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 0px; top: 368.672px; width: 34.5469px; height: 76.3125px; animation-duration: 1s; animation-delay: 1.8s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.8s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912855a548fd5923bd.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 234.609px; top: 226.359px; width: 71.1563px; height: 91.7813px; animation-duration: 1s; animation-delay: 1.5s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912845a548fd4cd461.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate scaleY" isproportion="false" animatename="scaleY" el_name="图片18" style="position: absolute; left: 35px; top: 89px; width: 254px; height: 382px; animation-duration: 1s; animation-delay: 0.9s; animation-iteration-count: 1; right: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(255, 229, 153); border-color: rgb(255, 229, 153);">
+                            <img src="./file_5a54aba9aaef6.png" alt="" style="width: 100%; margin-left: 0px; margin-top: 0px; height: 100%;" width="" />
+                        </div>
+                    </div>
+                    <div class="img animate translateUp" isproportion="false" animatename="translateUp" style="position: absolute; left: 0px; top: 440.859px; width: 330px; height: 78.8906px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912815a548fd10cc9e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate translateDown" isproportion="false" animatename="translateDown" style="position: absolute; left: 0px; top: 0px; width: 330px; height: 91.7813px; animation-duration: 1s; animation-delay: 0.4s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912795a548fcfcac5a.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 21.1406px; top: 153.141px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912785a548fced2042.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 14.9531px; top: 95.9063px; width: 83.0156px; height: 106.734px; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912785a548fce0e68c.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 29.3906px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912775a548fcd43fe0.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInCenter" isproportion="false" animatename="fadeInCenter" style="position: absolute; left: 271.734px; top: 152.625px; width: 31.4531px; height: 45.8906px; animation-duration: 1s; animation-delay: 2.1s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.1s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912765a548fcc8b4d7.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate bounceInUp" isproportion="false" animatename="bounceInUp" style="position: absolute; left: 224.313px; top: 95.3594px; width: 83px; height: 107px; right: auto; bottom: auto; animation-duration: 1s; animation-delay: 1.9s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;1.9s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912755a548fcbb966d.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate rotateInCenter" isproportion="false" animatename="rotateInCenter" style="position: absolute; left: 251.625px; top: 128.906px; width: 39.7031px; height: 14.9531px; animation-duration: 1s; animation-delay: 2.5s; animation-iteration-count: 1;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.5s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912755a548fcb02982.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 293.391px; top: 344.953px; width: 20.1094px; height: 20.1094px;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912725a548fc8ca6f3.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 231px; top: 276.375px; width: 11.3438px; height: 11.3438px;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912725a548fc823bf8.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 195.422px; top: 397.547px; width: 15.9844px; height: 15.9844px;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912715a548fc76767e.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="img animate fadeInUp" isproportion="false" animatename="fadeInUp" style="position: absolute; left: 13.9219px; top: 236.156px; width: 20.625px; height: 20.625px;" el_name="图片19" data-animation-style="{&quot;duration&quot;:&quot;&quot;,&quot;delay&quot;:&quot;&quot;,&quot;iteration-count&quot;:&quot;&quot;}">
+                        <div class="animate-contain" style="opacity:1;">
+                            <img src="./t_15154912705a548fc67b893.png" alt="" style="width: 100%;height: 100%;" />
+                        </div>
+                    </div>
+                    <div class="barrage animate scaleCenterOut" animatename="scaleCenterOut" el_name="弹幕1519773980" style="z-index:9998;position: absolute; top: 188px; height: 250px; width: 217px; left: 56px; animation-duration: 1s; animation-delay: 2.4s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity: 1; background-color: rgba(0, 0, 0, 0); color: rgb(255, 229, 153); border-style: none;">
+                            <div data-dm-id="1519773980" class="barrage-container" data-count="3" data-style="barrage-opacity">
+                            </div>
+                            
+                            <div class="barrage-middle" style="z-index:5000">
+                                <p style="font-size: 12px; color: rgb(255, 229, 153);">长按关注砺剑集团公众号</p>
+                                <p>　</p>
+                                <img src="./Lengine.jpg" alt="" style="position:relative;width:50%;height:50%;z-index:9999;" />
+                                <!-- <img src="https://mp.weixin.qq.com/rr?timestamp=1517814632&src=3&ver=1&signature=x1fIy9makgIJPXTK9TIdhW92Bp6NWTVFIeB16d0nk46NtgbeFsD**B-atXODFByTPIpN1p8DRzGmwxUlcTYWYYFnjTWI0nIoIkmkGFq3QOI=" alt="" style="position:relative;width:50%;height:50%;z-index:9999;" /> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="barrage animate scaleCenterOut" animatename="scaleCenterOut" el_name="dog_l" style="z-index:0;position: absolute; top: 272px; height: 250px; width: 217px; left: -65px; animation-duration: 1s; animation-delay: 2.4s; animation-iteration-count: 1; right: auto; bottom: auto;z-index:9999;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity: 1; background-color: rgba(0, 0, 0, 0); color: rgb(255, 229, 153); border-style: none;">
+                            <div data-dm-id="1519773980" class="barrage-container" data-count="3" data-style="barrage-opacity"></div>
+                            <div class="barrage-middle">
+                                <img src="./dog_l.png" alt="" style="position:relative;width:50%;height:50%;z-index:-1" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="barrage animate scaleCenterOut" animatename="scaleCenterOut" el_name="dog_r" style="z-index:1;position: absolute; top: 272px; height: 250px; width: 217px; left: 180px; animation-duration: 1s; animation-delay: 2.4s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;2.4s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="opacity: 1; background-color: rgba(0, 0, 0, 0); color: rgb(255, 229, 153); border-style: none;">
+                            <div data-dm-id="1519773980" class="barrage-container" data-count="3" data-style="barrage-opacity"></div>
+                            <div class="barrage-middle">
+                                <img src="./dog_r.png" alt="" style="position:relative;width:50%;height:50%;z-index:-1" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate text-new text_edit translateLeft" animatename="translateLeft" el_name="文字1" style="position: absolute; left: 74px; top: 51px; width: 83px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; right: auto; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="font-size: 12px; color: rgb(255, 229, 153);">狗 /&nbsp;年 /&nbsp;大 /&nbsp;吉</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="animate text-new text_edit translateRight js-max-zIndex" animatename="translateRight" el_name="文字2" style="position: absolute; left: 174px; top: 52px; width: 82px; height: 21px; animation-duration: 1s; animation-delay: 0.6s; animation-iteration-count: 1; bottom: auto;" data-animation-style="{&quot;duration&quot;:&quot;1s&quot;,&quot;delay&quot;:&quot;0.6s&quot;,&quot;iteration-count&quot;:&quot;1&quot;}">
+                        <div class="animate-contain" style="color: rgb(0, 0, 0);padding: 0;min-height:20px;">
+                            <p style="line-height: 1.5em;">
+                                <span style="color: rgb(255, 229, 153); font-size: 12px;">万 /&nbsp;事 /&nbsp;如 /&nbsp;意</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="background-animate scaleInCenterSlow" animatename="scaleInCenterSlow" style="position: absolute; left: 0%; top: 0%; width: 101%; display: none; opacity: 1; height: 100%; z-index: -1; animation-duration: 2s; animation-delay: 0.2s; animation-iteration-count: 1;" data-animation-style="{&quot;duration&quot;:&quot;2s&quot;,&quot;delay&quot;:&quot;0.2s&quot;,&quot;iteration&quot;:&quot;1&quot;}">
+                    <div class="animate-contain">
+                        <img src="./file_5a5477d1cde24.jpg" alt="" style="width: 100%; height: 100%;" />
+                    </div>
+                </div>
+            </section>
+            <!-- 举报 -->
+            <div class="tip-off" id="tip-off">举报</div>
+            <!-- tab end -->
+            <p id="aside-btn" class="aside-btn"></p>
+            <div class="next vertical-next" id="next" style="display: block;">
+                <div>
+                    <img src="./next.png" alt="" />
+                </div>
+            </div>
+            <div class="fix-nav-contianer"></div>
+        </div>
+        <!-- 翻页进度条 -->
+        <div class="page-progress" id="page-progress"></div>
+        <!-- 举报弹窗 -->
+        <!-- iframe -->
+        <div id="iframe">
+            <button class="back-to-int">返回</button>
+            <div class="iframe-container"></div>
+        </div>
+        <!-- flip里面page独立出来 -->
+        <div id="int-page" style="height: 588px;">
+            <button class="back-to-int int-special">返回</button>
+            <section class="int-page-container" id="int-page-container"></section>
+        </div>
+        <!-- 我的活动、圈子 -->
+        <div class="self-iframe" status="1" id="self-iframe"></div>
+        <!-- 微站 -->
+        <div id="user_promotion_container" class="user-promotion-container">
+            <button class="back-to-int int-promotion">返回</button>
+            <div id="user_promotion_content"></div>
+        </div>
+        <link rel="stylesheet" href="./animation.css" />
+        <link rel="stylesheet" href="./onekeyfocus.css" />
+        <!-- <script src="http://cdn.jisuapp.cn/zhichi_frontend/static/invitation/js/zepto.min.js"></script> -->
+        <script type="text/javascript" src="./jquery-1.11.1.min.js"></script> 
+        <script>
+          var animates = $('.animate:not(.int-animate),.background-animate');
+         // alert(JSON.stringify($('#123')[0].style));
+          animates.each(function(index,item){
+            var animation_data = $(item).data('animation-style');
+            if(animation_data){
+              item.style.webkitAnimationDuration = animation_data['duration'];
+              item.style.webkitAnimationDelay    = animation_data['delay'];
+              item.style.webkitAnimationIterationCount = animation_data['iteration-count'];
+            }
+          });
+
+          $.each($('.animate'), function(index, val) {
+            var _ani = $(val).find('.animate-contain');
+            if(_ani.attr('rotdegx')){
+              _ani.css("-webkit-transform", 'perspective(400px) rotateX(' +_ani.attr("rotdegx")+ 'deg) rotateY('+_ani.attr("rotdegy")+'deg) rotateZ('+_ani.attr("rotdegz")+'deg)');
+            }
+            if(/tel/.test($(val).attr("href"))){
+                $(val).wrap($('&lt;a href="'+$(val).attr("href")+'"&gt;&lt;\/a&gt;'));
+            }
+          });
+          var bg_control = $('.background-animate');
+          bg_control.each(function(index,item){
+            item.style.display = 'none';
+          });
+          // alert(JSON.stringify($('#123')[0].style));
+          var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?7e5b67cdb40188a301b15e216d15d822";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script> 
+        <script src="./onekeyfocus.js"></script> 
+        <script src="./common.js"></script> 
+        <script type="text/javascript" src="./adaptation.js"></script> 
+        <script src="./invitation.js"></script> 
+        <!-- <script type="text/javascript" src="./stats.js" name="MTAH5" sid=""></script> -->
+         
+        <!-- <script type="text/javascript" src="./danmu.js(1)"></script> -->
+        <!-- <script type="text/javascript" src="./svg4everybody.min.js"></script></body></html> -->
+        </div>
+    </body>
+</html>
